@@ -1,25 +1,16 @@
 import os #for os.walk
-import random
 import re
 import pathlib # for path manipulations
-from time import process_time_ns
 import pandas as pd
-import seaborn as sb
 import librosa # loading to wav
 import torchaudio # backup load method
 import librosa.display # examining sound files
 import numpy as np # for daicwoz signal arrays
 import soundfile as sf # reading and writing sound files
-import matplotlib.pyplot as plt # creating plots
-import torch
 from collections import Counter, defaultdict
-from pandas import DataFrame
-from pandas.core.dtypes.common import pandas_dtype
 from pathlib import Path
 from datasets import Dataset, Audio, Features, Value, Sequence, load_from_disk, concatenate_datasets
 from transformers import AutoFeatureExtractor, Wav2Vec2Config
-from captum.attr import IntegratedGradients
-#from finetune_no_bias_overfit import Wav2Vec2ForRegression
 
 ROOT_DIR = (r"full\path\to\directory\containing\all\interview\files")
 
@@ -309,11 +300,6 @@ if __name__ == "__main__":
     # HOW MANY SESSIONS CONSIST ONLY OF ANSWERS TOO SHORT TO SAVE AS SEGMENT
     df.groupby(["participant", "t"])["long_enough"].any().value_counts()
 
-    ds = Dataset.from_pandas(df, features=features, preserve_index=False)
-
-    # KEEP ONLY ROWS FROM RECORDINGS THAT WERE 20 S OR LONGER
-    filtered = ds.filter(lambda x: x["long_enough"])
-
     features = Features({
         "participant": Value("int64"),
         "question_number": Value("int64"),
@@ -322,6 +308,11 @@ if __name__ == "__main__":
         "audio": Audio(sampling_rate=16000),
         "long_enough": Value("bool")
     })
+
+    ds = Dataset.from_pandas(df, features=features, preserve_index=False)
+
+    # KEEP ONLY ROWS FROM RECORDINGS THAT WERE 20 S OR LONGER
+    filtered = ds.filter(lambda x: x["long_enough"])
 
     # LOAD FEATURE EXTRACTOR
     feature_extractor = AutoFeatureExtractor.from_pretrained("facebook/wav2vec2-base")
@@ -346,4 +337,4 @@ if __name__ == "__main__":
 
     filtered = filtered.map(preprocess_function, batched=True)
 
-    filtered.save_to_disk("mic_without_pred")
+    filtered.save_to_disk("mic_without_preds")
