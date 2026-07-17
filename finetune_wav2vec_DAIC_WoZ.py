@@ -205,7 +205,8 @@ if __name__ == "__main__":
     # SPLIT INTO DEV, TRAIN, TEST
     train_data = data.filter(lambda x: x['split'] == 'train')
     dev_data = data.filter(lambda x: x['split'] == 'dev')
-    test_data = data.filter(lambda x: x['split'] == 'test')
+    if FINAL_TEST:
+        test_data = data.filter(lambda x: x['split'] == 'test')
 
     # SET EVAL DATA
     if FINAL_TEST:
