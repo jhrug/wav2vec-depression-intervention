@@ -8,12 +8,15 @@ The setup used is not specific to this model or dataset: this repo contains prep
 
 ## File structure
 
-- `preprocessing/` - DAIC-WoZ audio and transcript handling, segmentation and labeling, Wav2Vec preprocessor
-- `fine-tuning/` - model definition and training scripts and per-run loss curves along with other visualizations (based on dev set)
-- `inference/` - running the trained model on held-out DAIC-WoZ data and data from psychological intervention study
 - `analyses/` - descriptives, embedding diagnostics (LOSO/LOPO, t-SNE), performance metrics, figures
 - `cross_domain_integrated_gradients/` - CDIG attribution analysis
+- `data` - see below
+- `fine-tuning/` - model definition and training scripts and per-run loss curves along with other visualizations (based on dev set)
+- `inference/` - running the trained model on held-out DAIC-WoZ data and data from psychological intervention study
+- `intervention_transcripts/` - content of audio files sent to participants for daily practice during intervention
+- `preprocessing/` - DAIC-WoZ audio and transcript handling, segmentation and labeling, Wav2Vec preprocessor
 - `thesis and supplemental material/` - full thesis PDF, proposal, protocol docs, overview of runs and performance metrics
+- 
 
 ## Data
 Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz. 
@@ -45,7 +48,7 @@ pip install -r requirements.txt
 ```
 
 ## Running it
-Download DAIC-WoZ data, preprocess with the scripts in `preprocessing/`, train with `fine-tuning/finetune_wav2vec_DAIC_WoZ.py`, run `inference/` on the result, then `analyses/` and CDIG for the diagnostics, performance and plots. Not every script has been tested for a clean run from a fresh clone yet, so open an issue if something's broken.
+Download DAIC-WoZ data, preprocess with the scripts in `preprocessing/`, train with `fine-tuning/finetune_wav2vec_DAIC_WoZ.py`, run `inference/` on the result, then `analyses/` and CDIG for the diagnostics, performance and plots. Not every script has been tested for a clean run from a fresh clone yet, so please open an issue if something's broken.
 
 ## License
 GPL-3.0, see `LICENSE`.
