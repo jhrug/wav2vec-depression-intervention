@@ -1,6 +1,6 @@
 # wav2vec-depression-intervention
 
-Research master's thesis project (AI, University of Groningen), looking at whether a Wav2Vec 2.0 model fine-tuned on the DAIC-WoZ can be used to estimate and track depressive symptom severity.
+Master's thesis project (Artificial Intelligence, University of Groningen), looking at whether a Wav2Vec 2.0 model fine-tuned on the DAIC-WoZ can be used to estimate and track depressive symptom severity for raw speech data from a psychological intervention study.
 
 The main finding is that the model ended up encoding who is speaking rather than depression-specific infomration, and that confound already seems to be encoded in the pretrained Wav2Vec 2.0 representations before any fine-tuning happens. This means that a chunk of the prior literature reporting strong results on this task may pick up on speaker identity rather than depression. More detail in the thesis itself under `thesis and supplemental material/`.
 
