@@ -16,8 +16,9 @@ The setup used to surface this isn't specific to this model or dataset: this rep
 - `thesis and supplemental material/` - full thesis PDF, proposal, protocol docs, overview of runs and performance metrics
 
 ## Data
-DAIC-WoZ requires a data use agreement, it's not included here. Request access through the official form: [(https://dcapswoz.ict.usc.edu/daic-woz-database-download/)](https://dcapswoz.ict.usc.edu/daic-woz-database-download/).
-Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h.
+DAIC-WoZ requires a data use agreement, it's not included here. Request access through the official form: [(https://dcapswoz.ict.usc.edu/daic-woz-database-download/)](https://dcapswoz.ict.usc.edu/daic-woz-database-download/).Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h.
+
+Anonymized data used for maing findings are included, along with the notebooks used to generate them.
 
 ## Setup
 
