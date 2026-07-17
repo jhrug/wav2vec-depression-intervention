@@ -16,7 +16,7 @@ The setup used is not specific to this model or dataset: this repo contains prep
 - `thesis and supplemental material/` - full thesis PDF, proposal, protocol docs, overview of runs and performance metrics
 
 ## Data
-Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h. Sensitive information from intervention study is also removed: only PHQ structure (estimated vs actual) is retained.
+Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz. 
 
 Anonymized data used for main findings are included, along with the notebooks used to generate them.
 - `df_phq_grand.pkl` — PHQ scores for the intervention study. Rows have been
