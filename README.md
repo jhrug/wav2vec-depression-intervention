@@ -16,17 +16,17 @@ The setup used isn't specific to this model or dataset: this repo holds preproce
 - `thesis and supplemental material/` - full thesis PDF, proposal, protocol docs, overview of runs and performance metrics
 
 ## Data
-Raw DAIC-WoZ audio requires a data use agreement, it's not included here. Request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h. Sensitive information from intervention study is also removed: only PHQ structure (estimated vs actual) is retained.
+Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h. Sensitive information from intervention study is also removed: only PHQ structure (estimated vs actual) is retained.
 
 Anonymized data used for main findings are included, along with the notebooks used to generate them.
 - `df_phq_grand.pkl` — PHQ scores for the intervention study. Rows have been
   reshuffled and participant IDs replaced with random two-character strings.
-- `woz_phqs.pkl` — actual vs estimated (by final model) PHQ scores for every participant x
+- `woz_phqs.pkl` — actual vs estimated (by final model) PHQ scores for every participant X
   segment-number combination in the DAIC-WoZ, including a column specifying split (dev/train/test).
 - `woz_eGeMAPS_features.pkl` — eGeMAPS acoustic features extracted from DAIC-WoZ
   audio (via openSMILE), used for the classical baseline models (Ridge/SVR/Random
   Forest).
-- `embeddings_epoch_0_and_20.parquet` - DAIC_WoZ test set encoder output for LOSO/LOPO analysis
+- `embeddings_epoch_0_and_20.parquet` - DAIC_WoZ test set (w2v) encoder output for LOSO/LOPO analysis
 
 ## Fine-tuning script design
 `fine-tuning/finetune_wav2vec_DAIC_WoZ.py` is built around a block of top-level constants rather than hardcoded values so that every architectural and training choice used across the thesis can be reproduced by flipping the value of a constant rather than editing the model code, for example:
