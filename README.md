@@ -28,5 +28,14 @@ pip install -r requirements.txt
 ## Running it
 Download DAIC-WoZ data, preprocess with the scripts in `preprocessing/`, train with `fine-tuning/finetune_wav2vec_DAIC_WoZ.py`, run `inference/` on the result, then `analyses/` and CDIG for the diagnostics, performance and plots. Not every script has been tested for a clean run from a fresh clone yet, so open an issue if something's broken.
 
+## Fine-tuning script design
+`fine-tuning/finetune_wav2vec_DAIC_WoZ.py` is built around a block of top-level constants rather than hardcoded values, so every architectural and training choice used across the thesis's ablations can be reproduced by flipping the value of a constant rather than editing the model code, for example:
+
+- `POOLING_METHOD` - mean or attention pooling over the time dimension
+- `INTER_FC_LAYER` - optional intermediate projector layer before the regressor
+- `DIVERSITY_LOSS` - optional variance-based penalty to discourage collapsed predictions
+- `ADVERSARIAL_TRAINING` - optional speaker-classification head with adversarial term, to test whether discouraging speaker-identity encoding helps
+- `FREEZE_BACKBONE`, `FINAL_TEST`, `OVERFIT_TEST`, dropout rates, learning rates and weight decay per parameter group
+
 ## License
 GPL-3.0, see `LICENSE`.
