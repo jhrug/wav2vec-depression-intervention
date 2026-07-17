@@ -1,6 +1,6 @@
 # wav2vec-depression-intervention
 
-Master's thesis project (Artificial Intelligence, University of Groningen), looking at whether a Wav2Vec 2.0 model fine-tuned on the DAIC-WoZ can be used to estimate and track depressive symptom severity for raw speech data from a psychological intervention study.
+Master's thesis project (Artificial Intelligence, University of Groningen) investigating whether a Wav2Vec 2.0 model fine-tuned on the DAIC-WoZ can be used to estimate and track depressive symptom severity for raw speech data from a psychological intervention study.
 
 The main finding is that the model ended up encoding who is speaking rather than depression-specific information, and that this confound already seems to be encoded in the pretrained Wav2Vec 2.0 representations before any fine-tuning happens. This means that a portion of the prior literature reporting strong results on this task may pick up on speaker identity rather than depression. 
 
@@ -9,7 +9,7 @@ The setup used is not specific to this model or dataset: this repo contains prep
 ## File structure
 
 - `preprocessing/` - DAIC-WoZ audio and transcript handling, segmentation and labeling, Wav2Vec preprocessor
-- `fine-tuning/` - model definition and training scripts
+- `fine-tuning/` - model definition and training scripts and per-run loss curves along with other visualizations (based on dev set)
 - `inference/` - running the trained model on held-out DAIC-WoZ data and data from psychological intervention study
 - `analyses/` - descriptives, embedding diagnostics (LOSO/LOPO, t-SNE), performance metrics, figures
 - `cross_domain_integrated_gradients/` - CDIG attribution analysis
@@ -33,7 +33,7 @@ Anonymized data used for main findings are included, along with the notebooks us
 
 - `POOLING_METHOD` - mean or attention pooling over the time dimension
 - `INTER_FC_LAYER` - optional intermediate projector layer before the regressor
-- `DIVERSITY_LOSS` - optional variance-based penalty to discourage collapsed predictions
+- `DIVERSITY_LOSS` - optional variance-based penalty to discourage collapsed estimates
 - `ADVERSARIAL_TRAINING` - optional speaker-classification head with adversarial term, to test whether discouraging speaker-identity encoding helps
 - `FREEZE_BACKBONE`, `FINAL_TEST`, `OVERFIT_TEST`, dropout rates, learning rates and weight decay per parameter group
 
