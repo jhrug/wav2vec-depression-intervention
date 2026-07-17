@@ -4,7 +4,7 @@ Master's thesis project (Artificial Intelligence, University of Groningen), look
 
 The main finding is that the model ended up encoding who is speaking rather than depression-specific infomration, and that confound already seems to be encoded in the pretrained Wav2Vec 2.0 representations before any fine-tuning happens. This means that a portion of the prior literature reporting strong results on this task may pick up on speaker identity rather than depression. 
 
-The setup used to surface this isn't specific to this model or dataset: this repo also holds preprocessing for a separate intervention study (interviews and journal recordings), and the pipeline as a whole is offered as a starting point for anyone wanting to extend these findings by fine-tuning an acoustic foundation model on a more varied set of depression estimation tasks before testing its robustness and applying explainability techniques.
+The setup used isn't specific to this model or dataset: this repo holds preprocessing (with generic functions applicable to sets of raw .WAV files following a specifiable naming convention) for a separate intervention study (interviews and journal recordings), and the pipeline as a whole is offered as a starting point for anyone wanting to extend these findings by fine-tuning an acoustic foundation model on a more varied set of depression estimation tasks before testing its robustness and applying explainability techniques.
 
 ## File structure
 
