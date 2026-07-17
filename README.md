@@ -17,7 +17,7 @@ This repo also holds preprocessing for a separate intervention study (interviews
 
 ## Data
 DAIC-WoZ requires a data use agreement, it's not included here. Request access through the official form: [(https://dcapswoz.ict.usc.edu/daic-woz-database-download/)](https://dcapswoz.ict.usc.edu/daic-woz-database-download/).
-Conventions used throughout: 20s segments, n=59 participants, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h.
+Conventions used throughout: 20s segments, 16000 Hz, `facebook/wav2vec2-base` pretrained on LibriSpeech 960h.
 
 ## Setup
 
