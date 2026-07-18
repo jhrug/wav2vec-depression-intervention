@@ -2,7 +2,7 @@
 
 Master's thesis project (Artificial Intelligence, University of Groningen) investigating whether a Wav2Vec 2.0 model fine-tuned on the DAIC-WoZ can be used to estimate and track depressive symptom severity for raw speech data from a psychological intervention study.
 
-The main finding is that the model ended up encoding who is speaking rather than depression-specific information, and that this confound already seems to be encoded in the pretrained Wav2Vec 2.0 representations before any fine-tuning happens. This means that a portion of the prior literature reporting strong results on this task may pick up on speaker identity rather than depression. 
+The main finding is that the model ended up encoding who is speaking rather than depression-specific information, and that this confound already seems to be encoded in the pretrained Wav2Vec 2.0 representations before any fine-tuning happens. This means that a portion of the prior literature reporting strong results on this task may reflect speaker identity recognition rather than true depression estimation. 
 
 The setup used is not specific to this model or dataset: this repo contains preprocessing (with generic functions applicable to sets of raw .WAV files following a specifiable naming convention) for a separate intervention study (interviews and journal recordings), and the pipeline as a whole is offered as a starting point for anyone wanting to extend these findings by fine-tuning an acoustic foundation model on a more varied set of depression estimation tasks before testing its robustness or applying explainability techniques.
 
@@ -16,10 +16,9 @@ The setup used is not specific to this model or dataset: this repo contains prep
 - `intervention_transcripts/` - content of audio files sent to participants for daily practice during intervention
 - `preprocessing/` - DAIC-WoZ audio and transcript handling, segmentation and labeling, Wav2Vec preprocessor
 - `thesis and supplemental material/` - full thesis PDF, proposal, protocol docs, overview of runs and performance metrics
-- 
 
 ## Data
-Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz. 
+Raw DAIC-WoZ audio requires a data use agreement, so it's not included here - request access through the [official form](https://dcapswoz.ict.usc.edu/daic-woz-database-download/). Conventions used throughout: 20s segments, 16000 Hz. Due to privacy agreements, raw audio from the intervention study is not available under any circumstance.
 
 Anonymized data used for main findings are included, along with the notebooks used to generate them.
 - `df_phq_grand.pkl` — PHQ scores for the intervention study. Rows have been
