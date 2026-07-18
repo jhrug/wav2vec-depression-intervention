@@ -8,7 +8,7 @@ The setup used is not specific to this model or dataset: this repo contains prep
 
 ## File structure
 
-- `analyses/` - descriptives, embedding diagnostics (LOSO/LOPO, t-SNE), performance metrics, figures
+- `analyses/` - notebooks for descriptives, embedding diagnostics (LOSO/LOPO, t-SNE), performance metrics, figures
 - `cross_domain_integrated_gradients/` - CDIG attribution analysis
 - `data` - see below
 - `fine-tuning/` - model definition and training scripts and per-run loss curves along with other visualizations (based on dev set)
@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ```
 
 ## Running it
-Download DAIC-WoZ data, preprocess with the scripts in `preprocessing/`, train with `fine-tuning/finetune_wav2vec_DAIC_WoZ.py`, run `inference/` on the result, then `analyses/` and CDIG for the diagnostics, performance and plots. Not every script has been tested for a clean run from a fresh clone yet, so please open an issue if something's broken.
+Download DAIC-WoZ data, preprocess with the scripts in `preprocessing/`, train with `fine-tuning/finetune_wav2vec_DAIC_WoZ.py`, run `inference/` on the result, then `analyses/` and CDIG for the diagnostics, performance and plots. Not every script has been tested for a clean run from a fresh clone yet, so please open an issue if something does not work.
 
 ## License
 GPL-3.0, see `LICENSE`.
